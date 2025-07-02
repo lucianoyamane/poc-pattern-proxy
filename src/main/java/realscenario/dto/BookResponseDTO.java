@@ -33,6 +33,15 @@ public class BookResponseDTO {
         return new Builder();
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            "\"id\":" + id + ", " +
+            "\"title\":\"" + title + "\", " +
+            "\"author\":\"" + author + "\"" +
+            "}";
+    }
+
     public static class Builder {
         private Long id;
         private String title;

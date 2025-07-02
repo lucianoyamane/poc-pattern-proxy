@@ -21,8 +21,8 @@ public class ScenarioApp {
         BookResponseDTO cervantesResponse = controller.createBook(cervantesDTO);
 
         System.out.println("\nLivros cadastrados:");
-        System.out.println(tolkienResponse.getId() + ": " + tolkienResponse.getTitle() + " - " + tolkienResponse.getAuthor());
-        System.out.println(cervantesResponse.getId() + ": " + cervantesResponse.getTitle() + " - " + cervantesResponse.getAuthor());
+        System.out.println(tolkienResponse.toString());
+        System.out.println(cervantesResponse.toString());
     }
     
 } 

@@ -16,8 +16,8 @@ public class BookService implements IBookService<Book, Book> {
 
     @Override
     public Book save(Book book) {
-        Book bookToSave = repository.save(book);
-        System.out.println("Livro salvo: " + bookToSave.getTitle() + " (ID: " + bookToSave.getId() + ")");
-        return bookToSave;
+        Book bookSaved = repository.save(book);
+        System.out.println("Livro salvo: " + bookSaved.toString());
+        return bookSaved;
     }
 } 
