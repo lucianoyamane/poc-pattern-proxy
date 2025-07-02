@@ -2,18 +2,21 @@ package realscenario.controller;
 
 import realscenario.dto.BookRequestDTO;
 import realscenario.dto.BookResponseDTO;
-import realscenario.model.Book;
-import realscenario.service.BookService;
+import realscenario.service.BookServiceProxy;
 
 public class BookController {
-    private BookService bookService;
+    private BookServiceProxy bookServiceProxy;
 
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+    public static BookController create() {
+        BookServiceProxy proxy = BookServiceProxy.create();
+        return new BookController(proxy);
+    }
+
+    public BookController(BookServiceProxy bookServiceProxy) {
+        this.bookServiceProxy = bookServiceProxy;
     }
 
     public BookResponseDTO createBook(BookRequestDTO dto) {
-        Book book = new Book(null, dto.getTitle(), dto.getAuthor());
-        return bookService.save(book);
+        return bookServiceProxy.save(dto);
     }
 } 

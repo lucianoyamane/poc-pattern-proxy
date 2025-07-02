@@ -1,23 +1,23 @@
 package realscenario.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import realscenario.dto.BookResponseDTO;
 import realscenario.model.Book;
+import realscenario.repository.BookRepository;
 
-public class BookService {
-    private List<Book> books = new ArrayList<>();
-    private long nextId = 1;
+public class BookService implements IBookService<Book, Book> {
+    private final BookRepository repository;
 
-    public BookResponseDTO save(Book book) {
-        Book bookToSave = new Book(nextId++, book.getTitle(), book.getAuthor());
-        books.add(bookToSave);
-        System.out.println("Livro salvo: " + bookToSave.getTitle() + " (ID: " + bookToSave.getId() + ")");
-        return new BookResponseDTO(bookToSave.getId(), bookToSave.getTitle(), bookToSave.getAuthor());
+    private BookService(BookRepository repository) {
+        this.repository = repository;
     }
 
-    public List<Book> getAll() {
-        return books;
+    public static BookService create() {
+        return new BookService(BookRepository.getInstance());
+    }
+
+    @Override
+    public Book save(Book book) {
+        Book bookToSave = repository.save(book);
+        System.out.println("Livro salvo: " + bookToSave.getTitle() + " (ID: " + bookToSave.getId() + ")");
+        return bookToSave;
     }
 } 

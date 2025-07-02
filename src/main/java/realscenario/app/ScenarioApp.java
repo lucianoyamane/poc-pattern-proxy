@@ -3,11 +3,10 @@ package realscenario.app;
 import realscenario.controller.BookController;
 import realscenario.dto.BookRequestDTO;
 import realscenario.dto.BookResponseDTO;
-import realscenario.service.BookService;
 
 public class ScenarioApp {
     public static void main(String[] args) {
-        BookController controller = new BookController(new BookService());
+        BookController controller = BookController.create();
 
         BookRequestDTO dto1 = new BookRequestDTO("O Senhor dos Anéis", "J.R.R. Tolkien");
         BookRequestDTO dto2 = new BookRequestDTO("Dom Quixote", "Miguel de Cervantes");
