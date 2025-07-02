@@ -22,6 +22,10 @@ Este projeto demonstra o uso do padrão de projeto **Proxy** em Java puro, com u
 4. O serviço real salva o livro no repositório singleton.
 5. O App imprime o resultado usando o DTO de response.
 
+## Diagrama C4 - Nível Container
+
+![Diagrama C4 Container](docs/c4/Container.png)
+
 ## Como executar
 
 - **Modo fácil (recomendado):**

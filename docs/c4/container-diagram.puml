@@ -1,0 +1,25 @@
+@startuml Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(app, "Usuário/App", "Usuário que executa a aplicação Java")
+
+System_Boundary(sistema, "Sistema de Cadastro de Livros") {
+    Container(controller, "BookController", "Java", "Recebe requisições e orquestra o fluxo de cadastro de livros")
+    Container(proxy, "BookServiceProxy", "Java", "Proxy que converte DTOs e delega ao serviço real")
+    Container(service, "BookService", "Java", "Contém a lógica de negócio para cadastro de livros")
+    Container(repository, "BookRepository", "Java", "Repositório singleton que armazena livros em memória")
+    Container(dto, "DTOs", "Java", "BookRequestDTO, BookResponseDTO")
+    Container(model, "Model", "Java", "Book")
+}
+
+Rel(app, controller, "Envia requisições")
+Rel(controller, proxy, "Depende de")
+Rel(proxy, service, "Delegação")
+Rel(proxy, dto, "Converte DTOs")
+Rel(proxy, model, "Converte Model")
+Rel(service, repository, "Persiste livros")
+Rel(service, model, "Manipula Model")
+Rel(repository, model, "Persiste Model")
+
+LAYOUT_WITH_LEGEND()
+@enduml 
