@@ -24,4 +24,5 @@ public class ScenarioApp {
         System.out.println(tolkienResponse.getId() + ": " + tolkienResponse.getTitle() + " - " + tolkienResponse.getAuthor());
         System.out.println(cervantesResponse.getId() + ": " + cervantesResponse.getTitle() + " - " + cervantesResponse.getAuthor());
     }
+    
 } 

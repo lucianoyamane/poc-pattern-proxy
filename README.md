@@ -44,6 +44,20 @@ javac -d out src/main/java/realscenario/**/*.java
 java -cp out realscenario.app.ScenarioApp
 ```
 
+## Como gerar e executar o JAR
+
+- Após compilar o projeto (ou rodar ./run.sh), gere o JAR com:
+
+```sh
+./build-jar.sh
+```
+
+- Execute o JAR gerado:
+
+```sh
+java -jar app.jar
+```
+
 ## Padrões e técnicas aplicadas
 
 - **Proxy:** Centraliza conversão DTO ↔ Model e delega ao serviço real.
