@@ -1,0 +1,9 @@
+# Ignorar arquivos de saída de compilação Java
+out/
+
+# Outros exemplos comuns
+*.class
+*.log
+.DS_Store
+.idea/
+*.iml 
