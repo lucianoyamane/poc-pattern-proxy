@@ -3,6 +3,7 @@ package realscenario.app;
 import realscenario.controller.BookController;
 import realscenario.dto.BookRequestDTO;
 import realscenario.dto.BookResponseDTO;
+import realscenario.util.AnsiColor;
 
 public class ScenarioApp {
     public static void main(String[] args) {
@@ -20,9 +21,9 @@ public class ScenarioApp {
         BookResponseDTO tolkienResponse = controller.createBook(tolkienDTO);
         BookResponseDTO cervantesResponse = controller.createBook(cervantesDTO);
 
-        System.out.println("\nLivros cadastrados:");
-        System.out.println(tolkienResponse.toString());
-        System.out.println(cervantesResponse.toString());
+        AnsiColor.printlnBlue("\nLivros cadastrados:");
+        AnsiColor.printlnBlue(tolkienResponse.toString());
+        AnsiColor.printlnBlue(cervantesResponse.toString());
     }
     
 } 

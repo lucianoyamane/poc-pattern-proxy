@@ -23,7 +23,11 @@ public class BookRepository implements IRepository<Book> {
     }
 
     public synchronized Book save(Book book) {
-        Book bookToSave = new Book(nextId++, book.getTitle(), book.getAuthor());
+        Book bookToSave = Book.builder()
+            .id(nextId++)
+            .title(book.getTitle())
+            .author(book.getAuthor())
+            .build();
         books.add(bookToSave);
         return bookToSave;
     }
