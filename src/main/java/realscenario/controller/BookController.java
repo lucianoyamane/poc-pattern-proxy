@@ -3,16 +3,17 @@ package realscenario.controller;
 import realscenario.dto.BookRequestDTO;
 import realscenario.dto.BookResponseDTO;
 import realscenario.service.BookServiceProxy;
+import realscenario.service.IBookService;
 
 public class BookController {
-    private BookServiceProxy bookServiceProxy;
+    private IBookService<BookRequestDTO, BookResponseDTO> bookServiceProxy;
 
     public static BookController create() {
-        BookServiceProxy proxy = BookServiceProxy.create();
+        IBookService<BookRequestDTO, BookResponseDTO> proxy = BookServiceProxy.create();
         return new BookController(proxy);
     }
 
-    public BookController(BookServiceProxy bookServiceProxy) {
+    public BookController(IBookService<BookRequestDTO, BookResponseDTO> bookServiceProxy) {
         this.bookServiceProxy = bookServiceProxy;
     }
 

@@ -12,7 +12,7 @@ public class BookServiceProxy implements IBookService<BookRequestDTO, BookRespon
         return new BookServiceProxy(realService);
     }
 
-    public BookServiceProxy(IBookService bookService) {
+    public BookServiceProxy(IBookService<Book, Book> bookService) {
         this.bookService = bookService;
     }
 
