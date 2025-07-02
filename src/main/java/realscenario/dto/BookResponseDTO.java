@@ -11,6 +11,12 @@ public class BookResponseDTO {
         this.author = author;
     }
 
+    private BookResponseDTO(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.author = builder.author;
+    }
+
     public Long getId() {
         return id;
     }
@@ -21,5 +27,34 @@ public class BookResponseDTO {
 
     public String getAuthor() {
         return author;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private Long id;
+        private String title;
+        private String author;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder author(String author) {
+            this.author = author;
+            return this;
+        }
+
+        public BookResponseDTO build() {
+            return new BookResponseDTO(this);
+        }
     }
 } 

@@ -21,6 +21,10 @@ public class BookServiceProxy implements IBookService<BookRequestDTO, BookRespon
 
         Book book = new Book(null, requestDTO.getTitle(), requestDTO.getAuthor());
         Book bookSaved = bookService.save(book);
-        return new BookResponseDTO(bookSaved.getId(), bookSaved.getTitle(), bookSaved.getAuthor());
+        return BookResponseDTO.builder()
+            .id(bookSaved.getId())
+            .title(bookSaved.getTitle())
+            .author(bookSaved.getAuthor())
+            .build();
     }
 } 

@@ -8,8 +8,14 @@ public class ScenarioApp {
     public static void main(String[] args) {
         BookController controller = BookController.create();
 
-        BookRequestDTO dto1 = new BookRequestDTO("O Senhor dos Anéis", "J.R.R. Tolkien");
-        BookRequestDTO dto2 = new BookRequestDTO("Dom Quixote", "Miguel de Cervantes");
+        BookRequestDTO dto1 = BookRequestDTO.builder()
+            .title("O Senhor dos Anéis")
+            .author("J.R.R. Tolkien")
+            .build();
+        BookRequestDTO dto2 = BookRequestDTO.builder()
+            .title("Dom Quixote")
+            .author("Miguel de Cervantes")
+            .build();
 
         BookResponseDTO response1 = controller.createBook(dto1);
         BookResponseDTO response2 = controller.createBook(dto2);
