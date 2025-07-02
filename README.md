@@ -68,3 +68,5 @@ java -jar app.jar
 ## Referência
 
 - [Refactoring Guru — Proxy em Java](https://refactoring.guru/pt-br/design-patterns/proxy/java/example)
+
+> **Observação:** Os scripts `run.sh` e `build-jar.sh` foram feitos para ambientes Linux/Unix. No Windows, recomenda-se usar Git Bash, WSL ou adaptar os comandos para batch/powershell.
